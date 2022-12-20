@@ -1,8 +1,8 @@
 import random
 
-def test_mode(word_list):
+def test_mode(words):
     # 读取单词列表
-    with open(word_list, 'r') as f:
+    with open(words, 'r') as f:
         words = []
         for line in f:
             words.append(line.strip().split(','))
@@ -43,5 +43,18 @@ def test_mode(word_list):
                 print(f'Incorrect. The correct answer is "{chinese_meaning}".')
                 # 将英文单词和中文意思写入错误答案文件
                 incorrect_answers_file.write(f'{english_word},{chinese_meaning}\n')
-
-test_mode('必修一.txt')
+def change():
+    print("change the words list:")
+    txt = '''
+1、选择性必修二U1
+2、选择性必修二U2
+'''
+    print(txt)
+    a = input()
+    if a == '1':
+        return '选择性必修二U1.txt'
+    elif a == '2':
+        return'选择性必修二U2.txt'
+b = change()
+print(b)
+test_mode(b)
